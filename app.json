@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/forget/forget",
+    "pages/home/home",
+    "pages/mine/mine",
+    "pages/history/history",
+    "pages/users/users",
+    "pages/add_task/add_task",
+    "pages/edit_task/edit_task",
+    "pages/add_user/add_user",
+    "pages/edit_user/edit_user",
+    "pages/show_user/show_user",
+    "pages/show_task/show_task",
+    "pages/done_task/done_task",
+    "pages/ongoing_task/ongoing_task"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#2c2c2c",
+    "list": [{
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine_select.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史记录",
+        "iconPath": "icons/history.png",
+        "selectedIconPath": "icons/history_select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

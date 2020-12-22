@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="first">
+  <image src="../../icons/logo.png" mode="aspectFit"></image>
+  <!-- <view class="title">
+    <view class="welcome">
+      <text>Welcome back!\n</text>
+    </view>
+    <view class="motto">
+      <text>You need to identify to sign back in</text> 
+    </view>
+  </view>
+  <view style="height:10%"></view> -->
+  <view class="phone">
+    <input placeholder="Phone" style="height:90%; border-radius:50rpx" maxlength="11" type="number"  bindinput ="phoneInput"/>
+  </view>
+  <view class="password">
+    <input type="passward" style="height:90%; border-radius:50rpx" placeholder="Password" password="true" maxlength="16" bindinput ="passwordInput"/>
+  </view>
+  <button style="height:32rpx; width:20%; font-size:25rpx; padding:0; margin-top:2rpx;background-color: rgb(255, 255, 255);" bindtap="forget">
+    <text style="text-decoration:underline;">Forget?</text>
+  </button>
+  <view class="root">
+    root\t<switch bindchange="listenerSwitch" style="padding-top:30rpx"></switch>
+  </view>
+</view>
+<view class="second">
+  <button bindtap="btnclick" class="btn">登录</button>
+</view>

@@ -1,0 +1,26 @@
+<view class="logo">
+  <image src="../../icons/logo.png" mode="aspectFit"></image>
+</view>
+<view class="form">
+  <view class="input">
+    <input placeholder="Phone" style="height:90%; border-radius:50rpx" maxlength="11" type="number" focus="true" bindinput ="phoneInput"/>
+  </view>
+  <view class="code">
+    <view class="code-code" style="width:50%;">
+      <input type="text"  style="height:90%;border-radius:50rpx" placeholder="验证码" password="true" maxlength="16" bindinput ="codeInput"/>
+    </view>
+    <view class="code-btn" style="width:50%;margin-left:5%">
+      <button class="code-button" style="width:95%;background-color: {{color}};border:1px solid black;border-radius:50rpx" bindtap="sendCode" catchtap="sendButton" disabled="{{btn}}">{{info}}
+      </button>
+    </view>
+  </view>
+  <view class="input">
+    <input type="passward" style="height:90%; border-radius:50rpx" placeholder="Password" password="true" maxlength="16" bindinput ="passwordInput"/>
+  </view>
+  <view class="input">
+    <input type="passward" style="height:90%; border-radius:50rpx" placeholder="再次输入" password="true" maxlength="16" bindinput ="passwordConfirm"/>
+  </view>
+</view>
+<view class="btn">
+  <button class="button" bindtap="enter">Enter</button>
+</view>
