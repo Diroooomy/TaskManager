@@ -1,1 +1,49 @@
 /* pages/mine/mine.wxss */
+page{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.navbar{
+  flex: none;
+  display: flex;
+  background: #fff;
+  font-size: 30rpx;
+  color: #bbbbbb;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 90rpx;
+}
+.navbar .item.active{
+  color: #908df5;
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5rpx;
+  background: #908df5;
+}
+.info{
+ display:flex;
+ margin-top: 250rpx;
+ justify-content: center;
+ align-items:center;
+ flex-direction: column;
+}
+.info image { 
+  width:300rpx;
+  height:300rpx;
+}
+.info text {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #908df5;
+}

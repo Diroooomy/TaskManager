@@ -6,9 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    navbar: ['待办','进行中', '协办'],
+    currentTab: 0,
   },
-
+  navbarTap: function (e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
+    //全局变量
+    app.globalData.currentTab = e.currentTarget.dataset.idx;
+  },
   /**
    * 生命周期函数--监听页面加载
    */

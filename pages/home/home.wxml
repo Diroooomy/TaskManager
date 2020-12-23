@@ -14,3 +14,9 @@
     <image src='/icons/null.png'></image>
   </view>
 </view>
+
+<view wx:elif="{{currentTab==2}}">
+  <view class='info'>
+    <image src='/icons/null.png'></image>
+  </view>
+</view>
