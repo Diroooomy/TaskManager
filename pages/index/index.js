@@ -52,7 +52,6 @@ Page({
         wx.hideLoading();
         console.log(res.data.token)
         if(res.statusCode == 200) {
-          
           app.globalData.token = res.data.token
           wx.showToast({
             title: '成功',
@@ -69,7 +68,7 @@ Page({
         } else {
           wx.showToast({
             title: '登录失败',
-            image: '../../icons/fail.png',
+            icon: 'error',
             duration: 1800,
             mask: true
           })

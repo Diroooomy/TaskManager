@@ -3,7 +3,8 @@ App({
   globalData:{
     token: null,
     root: 0,
-    currentTab : 0
+    currentTab : 0,
+    task_id: null
   },
   onLaunch: function () {
     // 展示本地存储能力
