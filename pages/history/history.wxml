@@ -6,11 +6,11 @@
 <!--内容-->
 <!-- 待办 -->
 <view wx:if="{{currentTab==0}}" class='content'>
-  <view wx:if="{{to_do.length==0}}" class='info'>
+  <view wx:if="{{is_done.length==0}}" class='info'>
     <image src='/icons/null.png'></image>
   </view>
   <scroll-view wx:else="" class='tasks' scroll-y="true">
-    <view wx:for="{{to_do}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[item.id % 5]}}, {{color2[index*4 % 5]}});">
+    <view wx:for="{{is_done}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[item.id % 5]}}, {{color2[index*4 % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
         负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
@@ -24,11 +24,11 @@
 </view>
 <!-- 进行中 -->
 <view wx:elif="{{currentTab==1}}" class='content'>
-  <view wx:if="{{ongoing.length==0}}" class='info'>
+  <view wx:if="{{co_done.length==0}}" class='info'>
     <image src='/icons/null.png'></image>
   </view>
   <scroll-view wx:else="" class='tasks' scroll-y="true">
-    <view wx:for="{{ongoing}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6) % 5]}}, {{color2[(index*7) % 5]}});">
+    <view wx:for="{{co_done}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6) % 5]}}, {{color2[(index*7) % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
         负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
@@ -40,24 +40,49 @@
     </view>
   </scroll-view>
 </view>
-<!-- 协办 -->
-<view wx:elif="{{currentTab==2}}" class='content'>
-  <view wx:if="{{co_work.length==0}}" class='info'>
-    <image src='/icons/null.png'></image>
-  </view>
-  <scroll-view wx:else="" class='tasks' scroll-y="true">
-    <view wx:for="{{co_work}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[index*2 % 5]}}, {{color2[item.id*3 % 5]}});">
-      <view class="detail">
-        <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
-        截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
-      </view>
-      <view class="start">
-        <button class="btn" style="padding:0;line-height: 150rpx;width:150rpx;height:150rpx; border-radius:50%;" id='{{index}}' bindtap="taskinfo">{{item.rate}}%</button>
-      </view>
-    </view>
-  </scroll-view>
+<!-- 筛选 -->
+<view class="addButton">
+  <image src="/icons/select.png" style="width:100rpx;height:100rpx;padding:0;" mode="Aspectfit" bindtap="addtask">
+  </image>
 </view>
+<!-- 侧边栏 -->
+<view class="sidebar" style="width:{{width}}; height:100%;position:fixed;">
+  <view hidden="{{open}}" class="condition">
+    <text style="color:white;">任务名</text>
+    <view class="input">
+      <input type="text" bindinput="task" placeholder="关键词"></input>
+    </view>
+    <text style="color:white;">部门</text>
+    <picker bindchange="department" mode="selector" value="{{start}}" range="{{department}}">
+    <view class="input">
+      <text>{{departments}}</text>
+    </view>
+    </picker>
+    <text style="color:white;">负责人</text>
+    <picker bindchange="leader" mode="selector" value="{{start}}" range="{{range}}">
+    <view class="input">
+      <text>{{leader}}</text>
+    </view>
+    </picker>
+    <text style="color:white;">截至日期</text>
+    <picker bindchange="start" mode="date" value="{{start}}">
+    <view class="input">
+      <text>{{start}}</text>
+    </view>
+    </picker>
+    <view style="color:white;">至</view>
+    <picker bindchange="end" mode="date" value="{{end}}" start="{{start}}" >
+    <view class="input">
+      <text>{{end}}</text>
+    </view>
+    </picker>
+  </view>
+  <button bindtap="close" hidden="{{open}}" style="height:80rpx; width:200rpx;border-radius:40rpx;">确定</button>
+  <view hidden="{{open}}" style="width:100%;margin-top:20rpx;text-align:center;vertical-align:middle;">
+    <image src="/icons/back.png" bindtap="closeBar" style="width:80rpx;height:80rpx;"></image>
+  </view>
+</view>
+
 
 
 

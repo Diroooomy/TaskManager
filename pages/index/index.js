@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+var app = getApp()
 
 Page({
   data: {
@@ -36,7 +36,7 @@ Page({
     wx.showLoading({
       title: '加载中...',
     });
-    app.globalData.root = this.data.root
+    app.Data.root = this.data.root
     wx.request({
       url: 'http://localhost/api/loginbyphone',
       method: 'POST',
@@ -52,7 +52,7 @@ Page({
         wx.hideLoading();
         console.log(res.data.token)
         if(res.statusCode == 200) {
-          app.globalData.token = res.data.token
+          app.Data.token = res.data.token
           wx.showToast({
             title: '成功',
             duration: 1000,

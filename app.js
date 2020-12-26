@@ -1,7 +1,7 @@
 //app.js
 App({
-  globalData:{
-    token: null,
+  Data:{
+    token: "32c493b84de3b7453cb5e35cac0b9042",
     root: 0,
     currentTab : 0,
     task_id: null

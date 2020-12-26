@@ -1,10 +1,10 @@
 {
   "pages":[
+    "pages/history/history",
     "pages/home/home",
     "pages/index/index",
     "pages/forget/forget",
     "pages/mine/mine",
-    "pages/history/history",
     "pages/users/users",
     "pages/add_task/add_task",
     "pages/edit_task/edit_task",
@@ -17,6 +17,8 @@
 
   ],
   "window":{
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50,
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "",
