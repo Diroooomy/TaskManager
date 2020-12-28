@@ -38,7 +38,7 @@ Page({
     });
     app.Data.root = this.data.root
     wx.request({
-      url: 'http://localhost/api/loginbyphone',
+      url: 'http://47.104.165.90/api/loginbyphone',
       method: 'POST',
       data:{
         "phone": this.data.phone,
@@ -59,13 +59,20 @@ Page({
             mask: true,
             success: function () {
               setTimeout(function () {
-                wx.switchTab({
-                  url: '../home/home',
-                })
+                if(app.Data.root == 0) {
+                  wx.switchTab({
+                    url: '/pages/mine/mine',
+                  })
+                } else if (app.Data.root == 1){
+                  wx.redirectTo({
+                    url: '/pages/users/users',
+                  })
+                }
               }, 1000)
             }
           })
         } else {
+          console.log(res.data.message)
           wx.showToast({
             title: '登录失败',
             icon: 'error',
@@ -73,6 +80,13 @@ Page({
             mask: true
           })
         }
+      },
+      fail:function(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '登录失败',
+          image: '/icons/fail.png'
+        })
       }
     })
   },

@@ -38,7 +38,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -109,7 +109,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",

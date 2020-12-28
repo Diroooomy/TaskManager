@@ -53,15 +53,15 @@
       <input type="text" bindinput="task" placeholder="关键词"></input>
     </view>
     <text style="color:white;">部门</text>
-    <picker bindchange="department" mode="selector" value="{{start}}" range="{{department}}">
+    <picker bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}"    range-key="{{'name'}}">
     <view class="input">
-      <text>{{departments}}</text>
+      <text>{{department}}</text>
     </view>
     </picker>
     <text style="color:white;">负责人</text>
-    <picker bindchange="leader" mode="selector" value="{{start}}" range="{{range}}">
+    <picker bindchange="leader" mode="selector" value="{{user}}" range="{{users}}" range-key="{{'name'}}">
     <view class="input">
-      <text>{{leader}}</text>
+      <text>{{user}}</text>
     </view>
     </picker>
     <text style="color:white;">截至日期</text>

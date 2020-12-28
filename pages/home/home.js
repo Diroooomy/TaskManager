@@ -43,7 +43,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -63,6 +63,7 @@ Page({
             'co_work': res.data.co_work
           })
         } else {
+          console.log(res.data.message)
           wx.showToast({
             title: '连接失败',
             image: '/icons/fail.png'
@@ -115,7 +116,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",

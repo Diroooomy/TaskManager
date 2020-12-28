@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    department: '',
+    user: '',
     start: '',
     end: '',
     taskName: null,
@@ -17,7 +19,7 @@ Page({
     co_done: [],
     color1: ['#4DC971', '#6793FE','#A487FE','#FEA722','#FC6E46'],
     color2: ['#76ECB8', '#64C9FF','#CEA4FE','#FFCC4F','#FF8B66'],
-    department: ['a','b','c','d','e'],
+    departments: ['a','b','c','d','e'],
   },
   navbarTap: function (e) {
     this.setData({
@@ -41,13 +43,14 @@ Page({
     });
     var that = this
     wx.request({
-      url: 'http://localhost/api/departments',
+      url: 'http://47.104.165.90/api/departments',
       method: 'GET',
       header: {
         'Accept': "application/json",
         'Authorization': app.Data.token
       },
       success:function (res) {
+        console.log(res.data)
         that.setData({
           departments: res.data
         })
@@ -77,29 +80,31 @@ Page({
   },
   department:function (e) {
     this.setData({
-      departments: this.data.department[e.detail.value]
+      department: this.data.departments[e.detail.value].name,
+      department_id: this.data.departments[e.detail.value].id,
+      url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id
     })
+    
+    console.log(e.detail.value)
     var that = this
     wx.request({
-      url: 'http://localhost/api/user/showusers',
+      url: that.data.url,
       method: 'GET',
       header: {
         'Accept': "application/json",
         'Authorization': app.Data.token
       },
-      data:{
-        'department_id': this.data.department_id,
-      },
       success:function (res) {
         that.setData({
           users: res.data
         })
+        console.log(res.data)
       }
     })
   },
   leader:function (e) {
     this.setData({
-      leader: e.detail.value
+      user: this.data.users[e.detail.value].name
     })
   },
   start: function (e) {
@@ -123,7 +128,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -195,7 +200,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     wx.request({
-      url: 'http://localhost/api/tasks',
+      url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",

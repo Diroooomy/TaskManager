@@ -44,7 +44,7 @@ Page({
     });
     var that = this;
     wx.request({
-      url: 'http://localhost/api/sms',
+      url: 'http://47.104.165.90/api/sms',
       method: 'POST',
       data:{
         "phone": this.data.phone
@@ -73,6 +73,13 @@ Page({
             mask: true
           })
         }
+      },
+      fail:function(){
+        wx.hideLoading()
+        wx.showToast({
+          title: '连接失败',
+          image: '/icons/fail.png'
+        })
       }
     })
     var that = this;
@@ -102,7 +109,7 @@ Page({
     app.globalData.root = this.data.root
     if (this.data.password == this.data.confirm) {
       wx.request({
-        url: 'http://localhost/api/change',
+        url: 'http://47.104.165.90/api/change',
         method: 'PUT',
         data:{
           "phone": this.data.phone,
@@ -123,6 +130,9 @@ Page({
               duration: 1000,
               mask: true,
             })
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
           } else {
             wx.showToast({
               title: '验证码错误',
@@ -131,6 +141,13 @@ Page({
               mask: true
             })
           }
+        },
+        fail:function() {
+          wx.hideLoading()
+          wx.showToast({
+            title: '连接失败',
+            image: '/icons/fail.png'
+          })
         }
       })
     } else {

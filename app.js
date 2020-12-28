@@ -1,9 +1,8 @@
 //app.js
 App({
   Data:{
-    token: "32c493b84de3b7453cb5e35cac0b9042",
+    token: "f2bb7ed32e63869c55837f64bcad375e",
     root: 0,
-    currentTab : 0,
     task_id: null
   },
   onLaunch: function () {
