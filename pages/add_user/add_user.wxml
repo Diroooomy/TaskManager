@@ -1,2 +1,48 @@
 <!--pages/add_user/add_user.wxml-->
-<text>pages/add_user/add_user.wxml</text>
+<!--pages/edit_user/edit_user.wxml-->
+
+<view class="card">
+  <view class="portrait">
+    <image class="image" src="/icons/user.png" mode="aspectFit"></image>
+  </view>
+  <view class="info">
+    <view class="text">
+      <text class="left">姓名 : </text>
+      <input type="text" bindinput="name" placeholder="{{user.name}}" class="right"/>
+    </view>
+    <view class="text">
+      <text class="left">手机号 : </text>
+      <input type="number" bindinput="phone" placeholder="{{user.phone}}" class="right"/>
+    </view>
+    <view class="text">
+      <text class="left">部门 : </text>
+      <picker class="right" bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}" range-key="{{'name'}}">
+        <view>
+          <text>{{department}}</text>
+        </view>
+    </picker>
+    </view>
+    <view class="text">
+      <text class="left">工号 : </text>
+      <input type="text" bindinput="id" placeholder="{{user.id}}" class="right"/>
+    </view>
+    <view class="text">
+      <text class="left">有效期 : </text>
+      <picker class="right" bindchange="validity" mode="selector" value="{{department}}"  range="{{validity}}">
+        <view >
+          <text wx:if="{{validity==0}}">永久</text>
+          <text>{{vali}}</text>
+        </view>
+    </picker>
+    </view>
+  </view>
+</view>
+<view class="button">
+  <view class="btn">
+    <image class="btn-image" bindtap="back" src="/icons/back.png" mode="aspectFit"></image>
+  </view>
+  <view class="btn">
+    <image class="btn-image" bindtap="save" src="/icons/confirm.png" mode="aspectFit"></image>
+  </view>
+</view>
+

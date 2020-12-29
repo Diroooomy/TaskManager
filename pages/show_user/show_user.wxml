@@ -1,2 +1,26 @@
 <!--pages/show_user/show_user.wxml-->
-<text>pages/show_user/show_user.wxml</text>
+<view class="card">
+  <view class="portrait">
+    <image class="image" src="/icons/user.png" mode="aspectFit"></image>
+  </view>
+  <view class="info">
+    <view class="text">
+      <text class="left">姓名 : </text><text class="right">{{user.name}}\n</text></view>
+    <view class="text">
+      <text class="left">手机号 : </text><text class="right">{{user.phone}}\n</text></view>
+    <view class="text">
+      <text class="left">部门 : </text><text class="right">{{user.department}}\n</text></view>
+    <view class="text">
+      <text class="left">工号 : </text><text class="right">{{user.id}}\n</text></view>
+    <view class="text">
+      <text class="left">有效期 : </text><text wx:if="{{user.validity==0}}" class="right">永久\n</text>   <text wx::else class="right">{{user.validity}}年\n</text></view>
+  </view>
+</view>
+<view class="button">
+  <view class="btn">
+    <image class="btn-image" bindtap="back" src="/icons/back.png" mode="aspectFit"></image>
+  </view>
+  <view class="btn">
+    <image class="btn-image" bindtap="edit" src="/icons/edit.png" mode="aspectFit"></image>
+  </view>
+</view>

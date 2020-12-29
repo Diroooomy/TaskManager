@@ -58,4 +58,8 @@
     </view>
   </scroll-view>
 </view>
-
+<view class="addButton">
+  <button style="width:130rpx;height:130rpx;padding:0;border-radius:50%;line-height:130rpx;" bindtap="addtask">
+  <image style="height:100%;width:100%" src="/icons/add.png" mode="aspectFit">
+  </image></button>
+</view>

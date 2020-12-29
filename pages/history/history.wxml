@@ -42,7 +42,7 @@
 </view>
 <!-- 筛选 -->
 <view class="addButton">
-  <image src="/icons/select.png" style="width:100rpx;height:100rpx;padding:0;" mode="Aspectfit" bindtap="addtask">
+  <image src="/icons/select.png" style="width:100rpx;height:100rpx;padding:0;" mode="Aspectfit" bindtap="select">
   </image>
 </view>
 <!-- 侧边栏 -->
@@ -77,7 +77,7 @@
     </view>
     </picker>
   </view>
-  <button bindtap="close" hidden="{{open}}" style="height:80rpx; width:200rpx;border-radius:40rpx;">确定</button>
+  <button bindtap="selectTask" hidden="{{open}}" style="height:80rpx; width:200rpx;border-radius:40rpx;">确定</button>
   <view hidden="{{open}}" style="width:100%;margin-top:20rpx;text-align:center;vertical-align:middle;">
     <image src="/icons/back.png" bindtap="closeBar" style="width:80rpx;height:80rpx;"></image>
   </view>

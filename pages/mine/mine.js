@@ -29,6 +29,11 @@ Page({
       url: '/pages/show_task/show_task',
     })
   },
+  addtask:function (e) {
+    wx.redirectTo({
+      url: '/pages/add_task/add_task',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

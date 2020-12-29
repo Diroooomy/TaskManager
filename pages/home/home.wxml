@@ -58,6 +58,4 @@
     </view>
   </scroll-view>
 </view>
-<view class="addButton">
-  <button style="width:130rpx;height:130rpx;padding:0;border-radius:50%;line-height:130rpx;background:rgba(6,171,111,0.8)" bindtap="addtask">➕</button>
-</view>
+

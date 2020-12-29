@@ -1,15 +1,6 @@
 <!--index.wxml-->
 <view class="first">
   <image src="../../icons/logo.png" mode="aspectFit"></image>
-  <!-- <view class="title">
-    <view class="welcome">
-      <text>Welcome back!\n</text>
-    </view>
-    <view class="motto">
-      <text>You need to identify to sign back in</text> 
-    </view>
-  </view>
-  <view style="height:10%"></view> -->
   <view class="phone">
     <input placeholder="Phone" style="height:90%; border-radius:50rpx" maxlength="11" type="number"  bindinput ="phoneInput"/>
   </view>

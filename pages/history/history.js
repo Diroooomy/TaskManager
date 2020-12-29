@@ -20,6 +20,7 @@ Page({
     color1: ['#4DC971', '#6793FE','#A487FE','#FEA722','#FC6E46'],
     color2: ['#76ECB8', '#64C9FF','#CEA4FE','#FFCC4F','#FF8B66'],
     departments: ['a','b','c','d','e'],
+    body: {}
   },
   navbarTap: function (e) {
     this.setData({
@@ -36,7 +37,7 @@ Page({
       url: '/pages/show_task/show_task',
     })
   },
-  addtask:function (e) {
+  select:function (e) {
     this.setData({
       width : '50%',
       open: false
@@ -57,13 +58,28 @@ Page({
       }
     })
   },
-  close:function (e) {
+  selectTask:function (e) {
+    var that = this
     this.setData({
       width: '0%',
       open: true
     })
+    console.log(this.data.body)
     wx.request({
-      url: 'url',
+      url: 'http://47.104.165.90/api/tasks/search',
+      method: 'GET',
+      header: {
+        'Accept': "application/json",
+        'Authorization': app.Data.token
+      },
+      data: that.data.body,
+      success:function (res) {
+        that.setData({
+          is_done: res.data.is_done,
+          co_done: res.data.co_done
+        })
+        console.log(res.data)
+      }
     })
   },
   closeBar:function (e) {
@@ -74,15 +90,17 @@ Page({
     console.log(this.data)
   },
   task:function (e) {
+
     this.setData({
-      taskName: e.detail.value
+      taskName: e.detail.value,
+      ['body.taskname']: e.detail.value
     })
   },
   department:function (e) {
     this.setData({
       department: this.data.departments[e.detail.value].name,
       department_id: this.data.departments[e.detail.value].id,
-      url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id
+      url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id,
     })
     
     console.log(e.detail.value)
@@ -95,32 +113,52 @@ Page({
         'Authorization': app.Data.token
       },
       success:function (res) {
-        that.setData({
-          users: res.data
-        })
+        if (res.statusCode == 200) {
+          that.setData({
+            users: res.data,
+          })
+        } else {
+          wx.showToast({
+            title: '连接失败',
+            imame: '/icons/fail.png',
+            duration: 600
+          })
+        }
         console.log(res.data)
+      },
+      fail:function(res) {
+        wx.showToast({
+          title: '连接失败',
+          imame: '/icons/fail.png',
+          duration: 600
+        })
       }
     })
   },
   leader:function (e) {
     this.setData({
-      user: this.data.users[e.detail.value].name
+      user: this.data.users[e.detail.value].name,
+      user_id: this.data.users[e.detail.value].id,
+      ['body.user_id']: this.data.users[e.detail.value].id
     })
   },
   start: function (e) {
     this.setData({
-      start: e.detail.value
+      start: e.detail.value,
+      ['body.start']: e.detail.value
     })
   },
   end: function (e) {
     this.setData({
-      end: e.detail.value
+      end: e.detail.value,
+      ['body.end']: e.detail.value
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.xyz)
     console.log(app)
     var data = app
     var that = this

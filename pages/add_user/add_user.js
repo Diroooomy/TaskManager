@@ -1,18 +1,163 @@
 // pages/add_user/add_user.js
+const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    department: '点击选择',
+    vali: '点击选择',
+    newuser: {},
+    validity: ['永久', '一年', '二年', '三年']
   },
-
+  name:function(e) {
+    this.setData({
+      ['newuser.name'] : e.detail.value,
+    })
+  },
+  phone:function(e) {
+    this.setData({
+      ['newuser.phone'] : e.detail.value,
+    })
+  },
+  department:function(e) {
+    console.log(e.detail.value)
+    this.setData({
+      ['newuser.department_id'] : this.data.departments[e.detail.value].id,
+      department: this.data.departments[e.detail.value].name,
+      ischange: true
+    })
+  },
+  id:function(e) {
+    this.setData({
+      ['newuser.id'] : e.detail.value,
+    })
+  },
+  validity:function(e) {
+    this.setData({
+      ['newuser.validity'] : e.detail.value,
+      vali: this.data.validity[e.detail.value]
+    })
+  },
+  back:function(e) {
+    if (this.data.ischange) {
+      wx.showModal({
+        title: '修改',
+        content: '不保存直接退出？',
+        showCancel: true,//是否显示取消按钮
+        cancelText:"否",//默认是“取消”
+        cancelColor:'skyblue',//取消文字的颜色
+        confirmText:"是",//默认是“确定”
+        confirmColor: 'skyblue',//确定文字的颜色
+        success: function (res) {
+          if (res.cancel) {
+              //点击取消,默认隐藏弹框
+          } else {
+            wx.showModal({
+              title: '修改',
+              content: '不保存退出，填写过的数据将无法保存',
+              showCancel: true,//是否显示取消按钮
+              cancelText:"否",//默认是“取消”
+              cancelColor:'skyblue',//取消文字的颜色
+              confirmText:"是",//默认是“确定”
+              confirmColor: 'skyblue',//确定文字的颜色
+              success:function(res) {
+                if (res.cancel){
+                } else {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                }
+              }
+            })
+          }
+        },
+     })
+    } else {
+      wx.navigateBack({
+        delta: 1,
+      })
+    }
+  },
+  save:function() {
+    var that = this
+    wx.showModal({
+      title: '新建用户',
+      content: '确定新建该用户信息？',
+      showCancel: true,//是否显示取消按钮
+      cancelText:"否",//默认是“取消”
+      cancelColor:'skyblue',//取消文字的颜色
+      confirmText:"是",//默认是“确定”
+      confirmColor: 'skyblue',//确定文字的颜色
+      success: function (res) {
+        if (res.cancel) {
+        } else {
+          
+          wx.request({
+            url: 'http://47.104.165.90/api/user/store',
+            method: 'POST',
+            header: {
+              'Accept': 'applicaiton/json',
+              'Authorization': app.Data.token
+            },
+            data: that.data.newuser,
+            success:function (res) {
+              if (res.statusCode == 200) {
+                wx.showToast({
+                  title: '成功',
+                  icon: 'success'
+                })
+                wx.navigateBack({
+                  delta: 1,
+                })
+              } else {
+                wx.showToast({
+                  title: '数据均不能为空',
+                  image: '/icons/fail.png'
+                })
+              }
+            },
+            fail:function(res) {
+              wx.showToast({
+                title: '连接失败',
+                image: '/icons/fail.png'
+              })
+            }
+          })
+        }
+      },
+      fail: function (res) { },//接口调用失败的回调函数
+      complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
+   })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: 'http://47.104.165.90/api/departments',
+      method: 'GET',
+      header: {
+        'Accept': 'applicaiton/json',
+        'Authorization': app.Data.token
+      },
+      success:function (res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            departments: res.data
+          })
+        } else {
+          wx.showToast({
+            title: '连接失败',
+            image: '/icons/fail.png'
+          })
+        }
+      },
+      fail:function(res) {
+        wx.showToast({
+          title: '连接失败',
+          image: '/icons/fail.png'
+        })
+      }
+    })
   },
 
   /**

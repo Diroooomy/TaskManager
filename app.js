@@ -1,9 +1,10 @@
 //app.js
 App({
   Data:{
-    token: "f2bb7ed32e63869c55837f64bcad375e",
+    token: "f2b7bbd4a268457b1990c07f25739670",
     root: 0,
-    task_id: null
+    task_id: null,
+    user_id: 'GT250'
   },
   onLaunch: function () {
     // 展示本地存储能力

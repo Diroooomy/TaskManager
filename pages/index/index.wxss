@@ -1,13 +1,14 @@
 /**index.wxss**/
 page {
+  margin-top:4%;
   position: fixed;
   margin-left: 2%;
   margin-right: 2%;
-  height: 98%;
+  height: 96%;
   width: 94%;
   padding: 0;
   border: 3px black solid;
-  border-top-width: 0px;
+  /* border-top-width: 0px; */
   border-radius: 50rpx;
   display: flex;
   flex-direction: column;
