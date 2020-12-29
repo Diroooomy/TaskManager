@@ -1,10 +1,11 @@
 {
   "pages":[
+    "pages/show_user/show_user",
+    "pages/ongoing_task/ongoing_task",
     "pages/index/index",
     "pages/add_user/add_user",
     "pages/edit_user/edit_user",
     "pages/users/users",
-    "pages/show_user/show_user",
     "pages/history/history",
     "pages/home/home",
     "pages/forget/forget",
@@ -12,11 +13,9 @@
     "pages/add_task/add_task",
     "pages/edit_task/edit_task",
     "pages/show_task/show_task",
-    "pages/done_task/done_task",
-    "pages/ongoing_task/ongoing_task"
+    "pages/done_task/done_task"
   ],
   "window":{
-
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50,
     "backgroundTextStyle":"dark",

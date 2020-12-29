@@ -3,7 +3,7 @@ App({
   Data:{
     token: "f2b7bbd4a268457b1990c07f25739670",
     root: 0,
-    task_id: null,
+    task_id: 1,
     user_id: 'GT250'
   },
   onLaunch: function () {

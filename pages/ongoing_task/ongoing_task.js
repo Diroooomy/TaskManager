@@ -1,4 +1,5 @@
 // pages/ongoing_task/ongoing_task.js
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +13,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.showLoading()
+    wx.request({
+      url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
+      method: 'GET',
+      header: {
+        'Accept': 'application/json',
+        'Authorization': app.Data.token
+      },
+      success:function(res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          that.setData({
+            task: res.data
+          })
+        } else {
+          wx.showToast({
+            title: '连接失败',
+            image: '/icons/fail.png'
+          })
+        }
+      },
+      fail:function(res) {
+        wx.showToast({
+          title: '连接失败',
+          image: '/icons/fail.png'
+        })
+      }
+    })
   },
 
   /**
