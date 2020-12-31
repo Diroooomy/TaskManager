@@ -1,2 +1,29 @@
 <!--pages/done_task/done_task.wxml-->
-<text>pages/done_task/done_task.wxml</text>
+<view class="card">
+  <view class="portrait">
+    <image class="image" src="/icons/done.png" mode="aspectFit"></image>
+  </view>
+  <view class="info">
+    <view class="text">
+      <text class="left">任务名称 : </text><text class="right">{{task.name}}\n</text></view>
+    <view class="textarea">
+      <text class="left">任务详情 : </text><text class="right">{{task.content}}\n</text></view>
+    <view class="text">
+      <text class="left">负责人 : </text><text class="right">{{task.leader}}\n</text></view>
+    <view class="text">
+      <text class="left">协助人 : </text><text class="right">{{task.helper}}\n</text></view>
+    <view class="text">
+      <text class="left">到期时间 : </text><text class="right">{{task.deadline}}\n</text>
+    </view>
+    <view class="text">
+      <text class="left">完成进度 : </text><text class="right">{{task.rate}}%\n</text>
+    </view>
+  </view>
+</view>
+<view class="button">
+  <view class="btn">
+    <image class="btn-image" bindtap="back" src="/icons/back.png" mode="aspectFit"></image>
+  </view>
+</view>
+
+

@@ -4,7 +4,7 @@
 </view>
 
 <!--内容-->
-<!-- 待办 -->
+<!-- 已完成 -->
 <view wx:if="{{currentTab==0}}" class='content'>
   <view wx:if="{{is_done.length==0}}" class='info'>
     <image src='/icons/null.png'></image>
@@ -13,7 +13,7 @@
     <view wx:for="{{is_done}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[item.id % 5]}}, {{color2[index*4 % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
+        负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
@@ -22,7 +22,7 @@
     </view>
   </scroll-view>
 </view>
-<!-- 进行中 -->
+<!-- 已协办 -->
 <view wx:elif="{{currentTab==1}}" class='content'>
   <view wx:if="{{co_done.length==0}}" class='info'>
     <image src='/icons/null.png'></image>
@@ -31,7 +31,7 @@
     <view wx:for="{{co_done}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6) % 5]}}, {{color2[(index*7) % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
+        负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
@@ -50,7 +50,7 @@
   <view hidden="{{open}}" class="condition">
     <text style="color:white;">任务名</text>
     <view class="input">
-      <input type="text" bindinput="task" placeholder="关键词"></input>
+      <input type="text" bindinput="task" placeholder="关键词" value="{{task}}"></input>
     </view>
     <text style="color:white;">部门</text>
     <picker bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}"    range-key="{{'name'}}">

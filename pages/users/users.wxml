@@ -4,7 +4,7 @@
   <view class="picker">
     <picker style="height:100%;width:100%" bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}" range-key="{{'name'}}">
       <view class="input">
-        <text>{{department}}</text>
+        <text>{{department?department:'全部'}}</text>
       </view>
     </picker>
   </view>

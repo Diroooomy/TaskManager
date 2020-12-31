@@ -23,17 +23,42 @@ Page({
   },
   taskinfo:function (e) {
     console.log(e.target.id)
-    app.globalData.task_id = e.target.id
+    if (this.data.currentTab == 0) {
+      app.Data.task_id = this.data.to_do[e.target.id].id
+    } else if (this.data.currentTab == 1) {
+      app.Data.task_id = this.data.ongoing[e.target.id].id
+    } else {
+      app.Data.task_id = this.data.co_work[e.target.id].id
+    }
+
     console.log(app.globalData.task_id)
-    wx.redirectTo({
-      url: '/pages/show_task/show_task',
+    wx.navigateTo({
+      url: '/pages/home_task/home_task',
     })
   },
- 
+  addtask:function (e) {
+    wx.navigateTo({
+      url: '/pages/add_task/add_task',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    console.log(this.data)
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.showLoading({
       title: '加载中',
@@ -43,12 +68,12 @@ Page({
       method: 'GET',
       header: {
         'Accept': "application/json",
-        'Authorization': app.Data.token
+        'Authorization': app.Data.token,
       },
-      data:{
-        'completed': 0,
-        'me': 0,
+      data: {
+        'type': 'home'
       },
+      
       success: function (res) {
         console.log(res.data)
         wx.hideLoading()
@@ -79,20 +104,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    console.log(this.data)
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
@@ -111,6 +122,7 @@ Page({
    */
   onPullDownRefresh: function () {
     var that = this
+    wx.showNavigationBarLoading()
     wx.request({
       url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
@@ -119,8 +131,7 @@ Page({
         'Authorization': app.Data.token
       },
       data:{
-        'completed': 0,
-        'me': 0,
+        'type': 'home'
       },
       success: function (res) {
         if (res.statusCode == 200) {

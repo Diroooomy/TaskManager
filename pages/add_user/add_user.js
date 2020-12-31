@@ -4,7 +4,8 @@ Page({
   data: {
     department: '点击选择',
     vali: '点击选择',
-    newuser: {},
+    newuser: {
+    },
     validity: ['永久', '一年', '二年', '三年']
   },
   name:function(e) {

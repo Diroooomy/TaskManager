@@ -17,7 +17,8 @@
       <text class="left">部门 : </text>
       <picker class="right" bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}" range-key="{{'name'}}">
         <view >
-          <text>{{newuser.department}}</text>
+          <text wx:if="{{newuser.department}}">{{newuser.department}}</text>
+          <text wx:if="{{!newuser.department}}">{{user.department}}</text>
         </view>
     </picker>
     </view>
@@ -29,7 +30,8 @@
       <text class="left">有效期 : </text>
       <picker class="right" bindchange="validity" mode="selector" value="{{department}}"  range="{{validity}}">
         <view >
-          <text wx:if="{{newuser.validity==0}}">{{newuser.validity}}</text>
+          <text wx:if="{{newuser.validity}}">{{newuser.validity==0?'永久':newuser.validity+'年'}}</text>
+          <text wx:if="{{!newuser.validity}}">{{user.validity}}年</text>
         </view>
     </picker>
     </view>

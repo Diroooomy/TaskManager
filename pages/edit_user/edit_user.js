@@ -102,7 +102,7 @@ Page({
             success: function (res) {
               if (res.cancel) {
               } else {
-                url = 'http://47.104.165.90/api/user/' + app.Data.user_id + '/delete'
+                var url = 'http://47.104.165.90/api/user/' + app.Data.user_id + '/delete'
           wx.request({
             url: url,
             method: 'DELETE',
@@ -117,7 +117,7 @@ Page({
                   icon: 'success'
                 })
                 wx.navigateBack({
-                  delta: 1,
+                  delta: 2,
                 })
               } else {
                 wx.showToast({
@@ -136,6 +136,7 @@ Page({
    })
   },
   save:function() {
+    var that = this
     wx.showModal({
       title: '保存修改',
       content: '确定要修改该用户信息？',
@@ -147,8 +148,8 @@ Page({
       success: function (res) {
         if (res.cancel) {
         } else {
-          var that = this
-          url = 'http://47.104.165.90/api/user/' + app.Data.user_id
+          
+          var url = 'http://47.104.165.90/api/user/' + app.Data.user_id
           wx.request({
             url: url,
             method: 'PUT',
@@ -203,7 +204,6 @@ Page({
         if (res.statusCode == 200) {
           that.setData({
             user: res.data,
-            newuser: res.data
           })
         }
       }

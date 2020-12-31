@@ -4,18 +4,7 @@ Page({
   data: {
     department: '全部',
     departments: '',
-    users:[{
-      name: '张三',
-      phone: '15611111111',
-      department: '运输部',
-      id: 'GT250'
-    },{
-      name: '张三',
-      phone: '15611111111',
-      department: '运输部',
-      id: 'GT250'
-    }
-  ]
+    users:[]
   },
   userinfo:function(e) {
     console.log(e.target.id)
@@ -30,7 +19,6 @@ Page({
       department_id: this.data.departments[e.detail.value].id,
       url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id,
     })
-    
     console.log(e.detail.value)
     var that = this
     wx.request({

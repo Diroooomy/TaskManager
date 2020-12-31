@@ -1,12 +1,13 @@
-// pages/done_task/done_task.js
+// pages/home_task/home_task.js
 const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    task: {}
+  },
+  edit:function(e) {
+    wx.navigateTo({
+      url: '/pages/edit_task/edit_task',
+    })
   },
   back:function(e) {
     wx.navigateBack({
@@ -17,7 +18,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showNavigationBarLoading()
+    var that = this
+    var url = 'http://47.104.165.90/api/tasks/' + app.Data.task_id
+    wx.request({
+      url: url,
+      method: 'GET',
+      header: {
+        'Accept': 'application/json',
+        'Authorization': app.Data.token
+      },
+      success: function(res) {
+        wx.hideNavigationBarLoading()
+        if (res.statusCode == 200) {
+          that.setData({
+            task: res.data
+          })
+        }
+      },
+      fail: function(res) {
+        wx.hideNavigationBarLoading()
+        wx.showToast({
+          title: '服务器异常',
+          image: '/icons/fail.png'
+        })
+      }
+    })
   },
 
   /**
@@ -76,7 +102,32 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.showNavigationBarLoading()
+    var that = this
+    var url = 'http://47.104.165.90/api/tasks/' + app.Data.task_id
+    wx.request({
+      url: url,
+      method: 'GET',
+      header: {
+        'Accept': 'application/json',
+        'Authorization': app.Data.token
+      },
+      success: function(res) {
+        wx.hideNavigationBarLoading()
+        if (res.statusCode == 200) {
+          that.setData({
+            task: res.data
+          })
+        }
+      },
+      fail: function(res) {
+        wx.hideNavigationBarLoading()
+        wx.showToast({
+          title: '服务器异常',
+          image: '/icons/fail.png'
+        })
+      }
+    })
   },
 
   /**

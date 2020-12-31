@@ -1,2 +1,55 @@
 <!--pages/edit_task/edit_task.wxml-->
-<text>pages/edit_task/edit_task.wxml</text>
+
+<view class="card">
+  <view class="portrait">
+    <image class="image" src="/icons/task.png" mode="aspectFit"></image>
+  </view>
+  <view class="info">
+    <view class="text">
+      <text class="left">任务名称 : </text>
+      <input type="text" bindinput="name" placeholder="{{task.name}}" class="right"/>
+    </view>
+    <view class="textarea">
+      <text class="left">任务详情 : </text>
+      <!-- <input type="number" bindinput="content" placeholder="{{task.content}}" class="right"/> -->
+      <textarea style="height:100%;" bindinput="content" placeholder="{{task.content}}" class="right"></textarea>
+    </view>
+    <view class="text">
+      <text class="left">负责人 : </text>
+      <picker class="right" bindchange="leader" mode="selector" value="{{user_id}}"  range="{{users}}" range-key="{{'name'}}">
+        <view >
+          <text>{{newtask.leader}}</text>
+        </view>
+    </picker>
+    </view>
+    <view class="text">
+      <text class="left">协助人 : </text>
+      <picker class="right" bindchange="helper" mode="selector" value="{{helper_id}}"  range="{{users}}" range-key="{{'name'}}">
+        <view >
+          <text>{{newtask.assistant}}</text>
+        </view>
+    </picker>
+    </view>
+    <view class="text">
+      <text class="left">完成时限 : </text>
+      <picker class="right" bindchange="deadline" mode="date" value="{{deadline}}" start="{{date}}">
+        <view >
+          <text>{{newtask.deadline}}</text>
+        </view>
+    </picker>
+    </view>
+  </view>
+</view>
+<view class="button">
+  <view class="btn">
+    <image class="btn-image" bindtap="back" src="/icons/back.png" mode="aspectFit"></image>
+  </view>
+  <view class="btn">
+    <image class="btn-image" bindtap="delete" src="/icons/delete.png" mode="aspectFit"></image>
+  </view>
+  <view class="btn">
+    <image class="btn-image" bindtap="save" src="/icons/confirm.png" mode="aspectFit"></image>
+  </view>
+</view>
+
+

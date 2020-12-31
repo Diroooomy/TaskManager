@@ -31,10 +31,14 @@ Page({
   },
   taskinfo:function (e) {
     console.log(e.target.id)
-    app.Data.task_id = e.target.id
+    if (this.data.currentTab == 0) {
+      app.Data.task_id = this.data.is_done[e.target.id].id
+    } else {
+      app.Data.task_id = this.data.co_done[e.target.id].id
+    }
     console.log(app.Data.task_id)
-    wx.redirectTo({
-      url: '/pages/show_task/show_task',
+    wx.navigateTo({
+      url: '/pages/done_task/done_task',
     })
   },
   select:function (e) {
@@ -173,8 +177,7 @@ Page({
         'Authorization': app.Data.token
       },
       data:{
-        'completed': 1,
-        'me': 0,
+        'type': 'history'
       },
       success: function (res) {
         wx.hideLoading()
@@ -201,9 +204,7 @@ Page({
       },
     })
   },
-  taskName: function () {
 
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -236,6 +237,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      body: {},
+      taskName: '',
+      department: '',
+      user: '',
+      start: '',
+      end: '',
+      task: ''
+    })
     var that = this
     wx.request({
       url: 'http://47.104.165.90/api/tasks',
@@ -245,8 +255,7 @@ Page({
         'Authorization': app.Data.token
       },
       data:{
-        'completed': 1,
-        'me': 0,
+        'type': 'history'
       },
       success: function (res) {
         if (res.statusCode == 200) {

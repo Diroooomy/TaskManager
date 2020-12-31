@@ -1,7 +1,7 @@
-<!--pages/ongoing_task/ongoing_task.wxml-->
+<!--pages/home_task/home_task.wxml-->
 <view class="card">
   <view class="portrait">
-    <image class="image" src="/icons/going.png" mode="aspectFit"></image>
+    <image class="image" src="/icons/task.png" mode="aspectFit"></image>
   </view>
   <view class="info">
     <view class="text">
@@ -16,10 +16,7 @@
       <text class="left">完成时限 : </text><text class="right">{{task.deadline}}\n</text>
     </view>
     <view class="text">
-      <text class="left">完成进度 : </text>
-      <view class="right">
-        <slider style="margin: 0" bindchange="rate" min="1" max="100" value="{{task.rate}}" show-value/>
-      </view>
+      <text class="left">完成进度 : </text><text class="right">{{task.rate}}%\n</text>
     </view>
   </view>
 </view>
@@ -30,10 +27,5 @@
   <view class="btn">
     <image class="btn-image" bindtap="edit" src="/icons/edit.png" mode="aspectFit"></image>
   </view>
-  <view class="btn">
-    <image class="btn-image" bindtap="finish" src="/icons/finish.png" mode="aspectFit"></image>
-  </view>
 </view>
-
-
 

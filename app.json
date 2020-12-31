@@ -1,19 +1,20 @@
 {
   "pages":[
-    "pages/show_user/show_user",
     "pages/ongoing_task/ongoing_task",
     "pages/index/index",
     "pages/add_user/add_user",
+    "pages/add_task/add_task",
+    "pages/edit_task/edit_task",
+    "pages/mine_task/mine_task",
+    "pages/home_task/home_task",
+    "pages/mine/mine",
+    "pages/done_task/done_task",
+    "pages/home/home",
+    "pages/show_user/show_user",
     "pages/edit_user/edit_user",
     "pages/users/users",
     "pages/history/history",
-    "pages/home/home",
-    "pages/forget/forget",
-    "pages/mine/mine",
-    "pages/add_task/add_task",
-    "pages/edit_task/edit_task",
-    "pages/show_task/show_task",
-    "pages/done_task/done_task"
+    "pages/forget/forget"
   ],
   "window":{
     "enablePullDownRefresh": true,

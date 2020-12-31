@@ -23,25 +23,47 @@ Page({
   },
   taskinfo:function (e) {
     console.log(e.target.id)
-    app.Data.task_id = e.target.id
+    if (this.data.currentTab == 0) {
+      app.Data.task_id = this.data.to_do[e.target.id].id
+      wx.navigateTo({
+        url: '/pages/mine_task/mine_task',
+      })
+    } else if (this.data.currentTab == 1) {
+      app.Data.task_id = this.data.ongoing[e.target.id].id
+      wx.navigateTo({
+        url: '/pages/ongoing_task/ongoing_task',
+      })
+    } else {
+      app.Data.task_id = this.data.co_work[e.target.id].id
+      wx.navigateTo({
+        url: '/pages/mine_task/mine_task',
+      })
+    }
+    
     console.log(app.Data.task_id)
-    wx.redirectTo({
-      url: '/pages/show_task/show_task',
-    })
+    
   },
-  addtask:function (e) {
-    wx.redirectTo({
-      url: '/pages/add_task/add_task',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
-    wx.showLoading({
-      title: '加载中',
-    })
+    wx.showNavigationBarLoading()
     wx.request({
       url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
@@ -50,12 +72,11 @@ Page({
         'Authorization': app.Data.token
       },
       data:{
-        'completed': 0,
-        'me': 1,
+        'type': 'my'
       },
       success: function (res) {
         console.log(res.data)
-        wx.hideLoading()
+        wx.hideNavigationBarLoading()
         if (res.statusCode == 200) {
           that.setData({
             'to_do': res.data.to_do,
@@ -71,27 +92,13 @@ Page({
       },
       fail: function (res) {
         console.log(res)
-        wx.hideLoading()
+        wx.hideNavigationBarLoading()
         wx.showToast({
           title: '连接失败',
           image: '/icons/fail.png'
         })
       },
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -121,8 +128,7 @@ Page({
         'Authorization': app.Data.token
       },
       data:{
-        'completed': 0,
-        'me': 1,
+        'type': 'my'
       },
       success: function (res) {
         console.log(res.data)

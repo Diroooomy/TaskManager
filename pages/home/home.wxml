@@ -13,7 +13,7 @@
     <view wx:for="{{to_do}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[item.id % 5]}}, {{color2[index*4 % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
+        负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
@@ -31,7 +31,7 @@
     <view wx:for="{{ongoing}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6) % 5]}}, {{color2[(index*7) % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
+        负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
@@ -49,7 +49,7 @@
     <view wx:for="{{co_work}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[index*2 % 5]}}, {{color2[item.id*3 % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
-        负责人：<text style="font-size: 37rpx;">{{item.leader.name}}\n</text>
+        负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
@@ -57,5 +57,10 @@
       </view>
     </view>
   </scroll-view>
+</view>
+<view class="addButton">
+  <button style="width:130rpx;height:130rpx;padding:0;border-radius:50%;line-height:130rpx;" bindtap="addtask">
+  <image style="height:100%;width:100%" src="/icons/add.png" mode="aspectFit">
+  </image></button>
 </view>
 
