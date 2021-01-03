@@ -14,6 +14,18 @@ page {
   background: rgb(119,169,254);
   z-index: -99;
 }
+.addButton {
+  position: fixed;
+  width: 25%;
+  height: 40%;
+  z-index: 99;
+  margin-top: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+}
 .page { 
   height: 100%;
   width: 100%;

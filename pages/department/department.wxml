@@ -1,0 +1,17 @@
+<!--pages/department/department.wxml-->
+<scroll-view class="de" scroll-y="true">
+  <view wx:for="{{departments}}" wx:key='*this' class="department">
+    <text>{{item.name}}</text>
+    <image src="/icons/delete.png" style="height:80%;margin-left:50rpx;" id="{{index}}" mode="aspectFit" bindtap="delete"></image>
+  </view>
+</scroll-view>
+<view class="page">
+  <view class="input">
+    <input type="text" bindinput="department" placeholder="部门名称" maxlength="10"/>
+  </view>
+  <view class="button">
+    <image src="/icons/confirm.png" bindtap="save" mode="aspectFit"></image>
+    <view style="width:50rpx;"></view>
+    <image src="/icons/delete.png" bindtap="back" mode="aspectFit"></image>
+  </view>
+</view>

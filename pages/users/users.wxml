@@ -1,5 +1,14 @@
 <!--pages/users/users.wxml-->
 <view class="color"></view>
+<view class="addButton">
+  <button style="width:100rpx;height:100rpx;padding:0;border-radius:50%;" bindtap="addUser">
+  <image style="height:100%;width:100%" src="/icons/add_user.png" mode="aspectFit">
+  </image></button>
+  <button style="width:100rpx;height:100rpx;padding:0;border-radius:50%;margin-top:40rpx;" bindtap="addDepartment">
+  <image style="height:100%;width:100%" src="/icons/department.png" mode="aspectFit">
+  </image></button>
+</view>
+
 <view class="page">
   <view class="picker">
     <picker style="height:100%;width:100%" bindchange="department" mode="selector" value="{{department}}"  range="{{departments}}" range-key="{{'name'}}">

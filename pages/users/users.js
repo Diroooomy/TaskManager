@@ -1,6 +1,7 @@
 // pages/users/users.js
 const app = getApp()
 Page({
+  hidden: true,
   data: {
     department: '全部',
     departments: '',
@@ -49,6 +50,16 @@ Page({
           duration: 600
         })
       }
+    })
+  },
+  addUser: function(e) {
+    wx.navigateTo({
+      url: '/pages/add_user/add_user',
+    })
+  },
+  addDepartment: function(e) {
+    wx.navigateTo({
+      url: '/pages/department/department',
     })
   },
   /**
@@ -173,6 +184,32 @@ Page({
           title: '连接失败',
           imame: '/icons/fail.png',
           duration: 600
+        })
+      }
+    })
+    wx.request({
+      url: 'http://47.104.165.90/api/departments',
+      method: 'GET',
+      header: {
+        'Accept': 'applicaiton/json',
+        'Authorization': app.Data.token
+      },
+      success: function(res) {
+        if (res.statusCode == 200) {
+          that.setData({
+            departments: res.data
+          })
+        } else {
+          wx.showToast({
+            title: '连接失败',
+            image: '/icons/fail.png'
+          })
+        }
+      },
+      fail: function(res) {
+        wx.showToast({
+          title: '连接失败',
+          image: '/icons/fail.png'
         })
       }
     })

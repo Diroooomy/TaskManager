@@ -13,7 +13,7 @@
     <view class="text">
       <text class="left">工号 : </text><text class="right">{{user.id}}\n</text></view>
     <view class="text">
-      <text class="left">有效期 : </text><text wx:if="{{user.validity==0}}" class="right">永久\n</text>   <text wx::else class="right">{{user.validity}}年\n</text></view>
+      <text class="left">有效期 : </text><text class="right">{{user.validity?(user.validity+'年'):'永久'}}\n</text></view>
   </view>
 </view>
 <view class="button">

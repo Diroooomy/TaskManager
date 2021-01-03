@@ -17,6 +17,9 @@ Page({
           confirmColor: 'skyblue',//确定文字的颜色
           success: function (res) {
             if (res.cancel) {
+              wx.navigateBack({
+                delta: 1,
+              })
             } else {
               wx.request({
                 url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
