@@ -30,8 +30,8 @@
       <text class="left">有效期 : </text>
       <picker class="right" bindchange="validity" mode="selector" value="{{department}}"  range="{{validity}}">
         <view >
-          <text wx:if="{{newuser.validity}}">{{newuser.validity==0?'永久':newuser.validity+'年'}}</text>
-          <text wx:if="{{!newuser.validity}}">{{user.validity}}年</text>
+          <text wx:if="{{newuser.validity != null}}">{{newuser.validity==0?'永久':newuser.validity+'年'}}</text>
+          <text wx:elif="{{newuser.validity == null}}">永久</text>
         </view>
     </picker>
     </view>

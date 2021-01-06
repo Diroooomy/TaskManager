@@ -52,6 +52,6 @@ page {
   align-items: center;
 }
 image {
-  height: 130rpx;
-  width: 130rpx;
+  height: 110rpx;
+  width: 110rpx;
 }

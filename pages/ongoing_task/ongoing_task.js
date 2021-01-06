@@ -10,11 +10,9 @@ Page({
       wx.showModal({
         title: '返回',
           content: '保存该任务进度？',
-          showCancel: true,//是否显示取消按钮
-          cancelText:"否",//默认是“取消”
-          cancelColor:'skyblue',//取消文字的颜色
-          confirmText:"是",//默认是“确定”
-          confirmColor: 'skyblue',//确定文字的颜色
+          showCancel: true,
+          cancelColor:'#000000',
+          confirmColor: '#000000',
           success: function (res) {
             if (res.cancel) {
               wx.navigateBack({
@@ -71,11 +69,9 @@ Page({
     wx.showModal({
       title: '完成',
       content: '是否已完成该任务？',
-      showCancel: true,//是否显示取消按钮
-      cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
-      confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      showCancel: true,
+      cancelColor:'#000000',
+      confirmColor: '#000000',
       success: function (res) {
          if (res.cancel) {
          } else {
@@ -98,7 +94,7 @@ Page({
                 } else {
                   wx.showToast({
                     title: '连接失败',
-                    image: '/icons/fail.png'
+                    icon: 'none'
                   })
                 }
               },
@@ -106,7 +102,7 @@ Page({
                 wx.hideNavigationBarLoading()
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             })
@@ -150,7 +146,7 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
@@ -158,7 +154,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

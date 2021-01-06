@@ -75,7 +75,7 @@ Page({
           console.log(res.data.message)
           wx.showToast({
             title: '登录失败',
-            image: '/icons/fail.png',
+            icon: 'none',
             duration: 1800,
             mask: true
           })
@@ -85,7 +85,7 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: '登录失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

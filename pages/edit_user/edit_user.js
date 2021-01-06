@@ -45,9 +45,9 @@ Page({
         content: '不保存修改退出？',
         showCancel: true,//是否显示取消按钮
         cancelText:"否",//默认是“取消”
-        cancelColor:'skyblue',//取消文字的颜色
+        cancelColor:'#000000',//取消文字的颜色
         confirmText:"是",//默认是“确定”
-        confirmColor: 'skyblue',//确定文字的颜色
+        confirmColor: '#000000',//确定文字的颜色
         success: function (res) {
           if (res.cancel) {
               //点击取消,默认隐藏弹框
@@ -57,9 +57,9 @@ Page({
               content: '不保存修改退出，修改过的数据将无法保存',
               showCancel: true,//是否显示取消按钮
               cancelText:"否",//默认是“取消”
-              cancelColor:'skyblue',//取消文字的颜色
+              cancelColor:'#000000',//取消文字的颜色
               confirmText:"是",//默认是“确定”
-              confirmColor: 'skyblue',//确定文字的颜色
+              confirmColor: '#000000',//确定文字的颜色
               success:function(res) {
                 if (res.cancel){
                 } else {
@@ -79,14 +79,15 @@ Page({
     }
   },
   delete:function() {
+    
     wx.showModal({
       title: '删除',
       content: '确定要删除该用户？',
       showCancel: true,//是否显示取消按钮
       cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
+      cancelColor:'#000000',//取消文字的颜色
       confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      confirmColor: '#000000',//确定文字的颜色
       success: function (res) {
         if (res.cancel) {
             //点击取消,默认隐藏弹框
@@ -96,9 +97,9 @@ Page({
             content: '确定要删除该用户，用户数据将无法恢复？',
             showCancel: true,//是否显示取消按钮
             cancelText:"否",//默认是“取消”
-            cancelColor:'skyblue',//取消文字的颜色
+            cancelColor:'#000000',//取消文字的颜色
             confirmText:"是",//默认是“确定”
-            confirmColor: 'skyblue',//确定文字的颜色
+            confirmColor: '#000000',//确定文字的颜色
             success: function (res) {
               if (res.cancel) {
               } else {
@@ -122,7 +123,7 @@ Page({
               } else {
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             }
@@ -142,9 +143,9 @@ Page({
       content: '确定要修改该用户信息？',
       showCancel: true,//是否显示取消按钮
       cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
+      cancelColor:'#000000',//取消文字的颜色
       confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      confirmColor: '#000000',//确定文字的颜色
       success: function (res) {
         if (res.cancel) {
         } else {
@@ -170,14 +171,14 @@ Page({
               } else {
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             },
             fail:function(res) {
               wx.showToast({
                 title: '连接失败',
-                image: '/icons/fail.png'
+                icon: 'none'
               })
             }
           })
@@ -223,14 +224,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
       fail:function(res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

@@ -40,7 +40,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '服务器异常',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })
@@ -78,7 +78,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '服务器异常',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })
@@ -124,7 +124,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '服务器异常',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

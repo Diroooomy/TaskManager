@@ -44,7 +44,7 @@
 <view class="button">
   
   <view class="btn">
-    <image class="btn-image" bindtap="delete" src="/icons/delete.png" mode="aspectFit"></image>
+    <image class="btn-image" bindtap="delete" src="/icons/back.png" mode="aspectFit"></image>
   </view>
   <view class="btn">
     <image class="btn-image" bindtap="save" src="/icons/confirm.png" mode="aspectFit"></image>

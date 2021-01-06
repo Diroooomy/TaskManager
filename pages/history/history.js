@@ -190,7 +190,7 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
@@ -199,7 +199,7 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
     })
@@ -267,7 +267,7 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
@@ -276,7 +276,7 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
       complete: function(res) {

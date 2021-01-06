@@ -68,7 +68,7 @@ Page({
         } else {
           wx.showToast({
             title: '网络不佳',
-            image: '../../icons/fail.png',
+            icon: 'none',
             duration: 1800,
             mask: true
           })
@@ -78,7 +78,7 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          iicon: 'none'
         })
       }
     })
@@ -136,7 +136,7 @@ Page({
           } else {
             wx.showToast({
               title: '验证码错误',
-              image: '../../icons/fail.png',
+              icon: 'none',
               duration: 1800,
               mask: true
             })
@@ -146,7 +146,7 @@ Page({
           wx.hideLoading()
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       })

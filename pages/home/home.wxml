@@ -10,7 +10,7 @@
     <image src='/icons/null.png'></image>
   </view>
   <scroll-view wx:else="" scroll-y="true" class='tasks'>
-    <view wx:for="{{to_do}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[item.id % 5]}}, {{color2[index*4 % 5]}});">
+    <view wx:for="{{to_do}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*7) % 5]}}, {{color2[(index*index) % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
         负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>
@@ -28,7 +28,7 @@
     <image src='/icons/null.png'></image>
   </view>
   <scroll-view wx:else="" class='tasks' scroll-y="true">
-    <view wx:for="{{ongoing}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6) % 5]}}, {{color2[(index*7) % 5]}});">
+    <view wx:for="{{ongoing}}" wx:key='*this' class="task" style="background:linear-gradient(to right, {{color1[(item.id*6+1) % 5]}}, {{color2[(index*7) % 5]}});">
       <view class="detail">
         <text style="font-size: 45rpx;">{{item.name}}\n</text>
         负责人：<text style="font-size: 37rpx;">{{item.leader}}\n</text>

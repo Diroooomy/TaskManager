@@ -17,7 +17,7 @@
         截止日期：<text style="font-size: 30rpx;">{{item.deadline}}</text>
       </view>
       <view class="start">
-        <button class="btn" style="width:70%;" id='{{index}}' bindtap="taskinfo">详情</button>
+        <button class="btn" style="padding:0;line-height: 150rpx;width:150rpx;height:150rpx; border-radius:50%;" id='{{index}}' bindtap="taskinfo">{{item.rate}}%</button>
       </view>
     </view>
   </scroll-view>

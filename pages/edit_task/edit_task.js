@@ -61,9 +61,9 @@ Page({
         content: '不保存修改退出？',
         showCancel: true,//是否显示取消按钮
         cancelText:"否",//默认是“取消”
-        cancelColor:'skyblue',//取消文字的颜色
+        cancelColor:'#000000',//取消文字的颜色
         confirmText:"是",//默认是“确定”
-        confirmColor: 'skyblue',//确定文字的颜色
+        confirmColor: '#000000',//确定文字的颜色
         success: function (res) {
           if (res.cancel) {
               //点击取消,默认隐藏弹框
@@ -73,9 +73,9 @@ Page({
               content: '不保存修改退出，修改过的数据将无法保存',
               showCancel: true,//是否显示取消按钮
               cancelText:"否",//默认是“取消”
-              cancelColor:'skyblue',//取消文字的颜色
+              cancelColor:'#000000',//取消文字的颜色
               confirmText:"是",//默认是“确定”
-              confirmColor: 'skyblue',//确定文字的颜色
+              confirmColor: '#000000',//确定文字的颜色
               success:function(res) {
                 if (res.cancel){
                 } else {
@@ -101,9 +101,9 @@ Page({
       content: '确定要删除该任务？',
       showCancel: true,//是否显示取消按钮
       cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
+      cancelColor:'#000000',//取消文字的颜色
       confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      confirmColor: '#000000',//确定文字的颜色
       success: function (res) {
         if (res.cancel) {
             //点击取消,默认隐藏弹框
@@ -113,15 +113,14 @@ Page({
             content: '确定要删除该用户，用户数据将无法恢复？',
             showCancel: true,//是否显示取消按钮
             cancelText:"否",//默认是“取消”
-            cancelColor:'skyblue',//取消文字的颜色
+            cancelColor:'#000000',//取消文字的颜色
             confirmText:"是",//默认是“确定”
-            confirmColor: 'skyblue',//确定文字的颜色
+            confirmColor: '#000000',//确定文字的颜色
             success: function (res) {
               if (res.cancel) {
               } else {
-                url = 'http://47.104.165.90/api/tasks/' + app.Data.task_id
           wx.request({
-            url: url,
+            url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
             method: 'DELETE',
             header: {
               'Accept': 'application/json',
@@ -139,7 +138,7 @@ Page({
               } else {
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             }
@@ -154,15 +153,15 @@ Page({
   } else {
     wx.showToast({
       title: '仅负责人可删除',
-      image: '/icons/fail.png'
+      icon: 'none'
     })
   }
   },
   save:function() {
     if (this.data.newtask.user_id == this.data.newtask.helper) {
       wx.showToast({
-        title: '负责人与协助人',
-        image:'/icons/fail.png'
+        title: '负责人与协助人不能一致',
+        icon: 'none'
       })
     } else {
       var that = this
@@ -171,9 +170,9 @@ Page({
       content: '确定要修改该任务信息？',
       showCancel: true,//是否显示取消按钮
       cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
+      cancelColor:'#000000',//取消文字的颜色
       confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      confirmColor: '#000000',//确定文字的颜色
       success: function (res) {
         if (res.cancel) {
         } else {
@@ -198,14 +197,14 @@ Page({
               } else {
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             },
             fail:function(res) {
               wx.showToast({
                 title: '连接失败',
-                image: '/icons/fail.png'
+                icon: 'none'
               })
             }
           })
@@ -241,7 +240,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '服务器异常',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

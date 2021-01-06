@@ -60,9 +60,7 @@ Page({
    */
   onShow: function () {
     var that = this
-    wx.showLoading({
-      title: '加载中',
-    })
+    wx.showNavigationBarLoading()
     wx.request({
       url: 'http://47.104.165.90/api/tasks',
       method: 'GET',
@@ -76,7 +74,7 @@ Page({
       
       success: function (res) {
         console.log(res.data)
-        wx.hideLoading()
+        wx.hideNavigationBarLoading()
         if (res.statusCode == 200) {
           that.setData({
             'to_do': res.data.to_do,
@@ -87,16 +85,16 @@ Page({
           console.log(res.data.message)
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         } 
       },
       fail: function (res) {
         console.log(res)
-        wx.hideLoading()
+        wx.hideNavigationBarLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
     })
@@ -143,14 +141,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         } 
       },
       fail: function (res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
       complete:function(res) {

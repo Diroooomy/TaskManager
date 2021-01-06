@@ -66,6 +66,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.setData({
+      department: '全部'
+    })
     var that = this
     wx.request({
       url: 'http://47.104.165.90/api/departments',
@@ -82,14 +99,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
       fail: function(res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })
@@ -122,20 +139,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -202,14 +205,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
       fail: function(res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

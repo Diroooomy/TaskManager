@@ -58,38 +58,54 @@ Page({
     this.setData({
       id: this.data.departments[e.target.id].id
     })
+    
     var that = this
     wx.showModal({
-      title: '删除',
+      title: '删除部门',
       content: '确认删除该部门？',
+      showCancel: true,
+      cancelColor:'#000000',
+      confirmColor: '#000000',
       success (res) {
         if (res.confirm) {
-          wx.request({
-            url: 'http://47.104.165.90/api/departments/' + that.data.id,
-            method: 'DELETE',
-            header: {
-              'Accept': 'application/json',
-              'Authorization': app.Data.token
-            },
-            success:function(res) {
-              if (res.statusCode == 200) {
-                 wx.showToast({
-                   title: '成功',
-                   icon: 'success',
-                 })
-                 that.onLoad()
-              } else (
-                wx.showToast({
-                  title: '失败',
+          wx.showModal({
+            title: '删除用户',
+            content: '该部门下的用户也会删除，继续？',
+            showCancel: true,
+            cancelColor:'#000000',
+            confirmColor: '#000000',
+            success (res) {
+              if (res.confirm) {
+                wx.request({
+                  url: 'http://47.104.165.90/api/departments/' + that.data.id,
+                  method: 'DELETE',
+                  header: {
+                    'Accept': 'application/json',
+                    'Authorization': app.Data.token
+                  },
+                  success:function(res) {
+                    if (res.statusCode == 200) {
+                       wx.showToast({
+                         title: '成功',
+                         icon: 'success',
+                       })
+                       that.onLoad()
+                    } else (
+                      wx.showToast({
+                        title: '失败',
+                      })
+                    )
+                  },
+                  fail:function(res) {
+                    wx.showToast({
+                      title: '失败',
+                    })
+                  }
                 })
-              )
-            },
-            fail:function(res) {
-              wx.showToast({
-                title: '失败',
-              })
+              }
             }
           })
+          
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -117,14 +133,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
       fail: function(res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })
@@ -178,14 +194,14 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
       fail: function(res) {
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })

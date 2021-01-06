@@ -36,7 +36,7 @@ Page({
     } else {
       app.Data.task_id = this.data.co_work[e.target.id].id
       wx.navigateTo({
-        url: '/pages/mine_task/mine_task',
+        url: '/pages/ongoing_task/ongoing_task',
       })
     }
     
@@ -86,7 +86,7 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
@@ -95,7 +95,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
     })
@@ -141,7 +141,7 @@ Page({
         } else {
           wx.showToast({
             title: '连接失败',
-            image: '/icons/fail.png'
+            icon: 'none'
           })
         }
       },
@@ -149,7 +149,7 @@ Page({
         console.log(res)
         wx.showToast({
           title: '连接失败',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       },
       complete:function(res) {

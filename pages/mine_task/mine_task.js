@@ -14,10 +14,8 @@ Page({
       title: 'start',
       content: '开始进行该任务？',
       showCancel: true,//是否显示取消按钮
-      cancelText:"否",//默认是“取消”
-      cancelColor:'skyblue',//取消文字的颜色
-      confirmText:"是",//默认是“确定”
-      confirmColor: 'skyblue',//确定文字的颜色
+      cancelColor:'#000000',//取消文字的颜色
+      confirmColor: '#000000',//确定文字的颜色
       success: function (res) {
         if (res.cancel) {
         } else {
@@ -47,7 +45,7 @@ Page({
               } else {
                 wx.showToast({
                   title: '连接失败',
-                  image: '/icons/fail.png'
+                  icon: 'none'
                 })
               }
             },
@@ -55,7 +53,7 @@ Page({
               wx.hideNavigationBarLoading()
               wx.showToast({
                 title: '连接失败',
-                image: '/icons/fail.png'
+                icon: 'none'
               })
             }
           })
@@ -107,7 +105,7 @@ Page({
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '服务器异常',
-          image: '/icons/fail.png'
+          icon: 'none'
         })
       }
     })
