@@ -18,7 +18,7 @@
     <view class="text">
       <text class="left">完成进度 : </text>
       <view class="right">
-        <slider style="margin: 0" bindchange="rate" min="1" max="100" value="{{task.rate}}" show-value/>
+        <slider style="margin: 0" bindchange="rate" block-color="#2B9873" block-size="18" min="1" max="100" value="{{task.rate}}" show-value/>
       </view>
     </view>
   </view>
