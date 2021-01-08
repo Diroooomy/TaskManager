@@ -29,7 +29,10 @@
         <view >
           <text>{{helper}}</text>
         </view>
-    </picker>
+      </picker>
+      <view class="clear">
+        <button style="width:100%;height:100%;padding:0" bindtap="clear">×</button>
+      </view>
     </view>
     <view class="text">
       <text class="left">完成时限 : </text>

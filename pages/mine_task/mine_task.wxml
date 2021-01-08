@@ -12,7 +12,7 @@
     <view class="text">
       <text class="left">负责人 : </text><text class="right">{{task.leader}}\n</text></view>
     <view class="text">
-      <text class="left">协助人 : </text><text class="right">{{task.helper}}\n</text></view>
+      <text class="left">协助人 : </text><text class="right">{{task.assistant}}\n</text></view>
     <view class="text">
       <text class="left">完成时限 : </text><text class="right">{{task.deadline}}\n</text>
     </view>

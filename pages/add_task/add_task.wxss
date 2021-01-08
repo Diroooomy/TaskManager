@@ -53,6 +53,9 @@ page {
 text {
   font-size: 35rpx;
 }
+.clear {
+  width: 8%;
+}
 .left {
   width: 50%;
 

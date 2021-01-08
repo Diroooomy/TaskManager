@@ -38,8 +38,11 @@ page {
   display: flex;
   align-items: center;
   height: 15%;
-  width: 80%;
+  width: 85%;
   margin-top:2%;
+}
+.clear {
+  width: 8%;
 }
 .textarea {
   margin-left: 10%;

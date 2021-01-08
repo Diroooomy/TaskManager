@@ -14,6 +14,14 @@ Page({
     date: date,
     ischange: false
   },
+  clear:function(e) {
+    delete this.data.body.helper
+    this.setData({
+      ['newtask.assistant']: null,
+      ['body.is_helped']: 0
+    })
+    console.log(this.data.body.helper)
+  },
   name:function(e) {
     console.log(e.detail.value)
     this.setData({

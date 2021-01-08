@@ -17,6 +17,14 @@ Page({
       'is_helped': false
     }
   },
+  clear:function(e) {
+    delete this.data.task.helper
+    this.setData({
+      helper: '点击选择',
+      ['task.is_helped']: false
+    })
+    console.log(this.data.task.helper)
+  },
   name:function(e) {
     this.setData({
       ['task.name']: e.detail.value
