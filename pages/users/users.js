@@ -171,12 +171,12 @@ Page({
         if (res.statusCode == 200) {
           that.setData({
             users: res.data,
-            department: ''
+            department: '全部'
           })
         } else {
           wx.showToast({
             title: '连接失败',
-            imame: '/icons/fail.png',
+            icon: 'none',
             duration: 600
           })
         }
@@ -185,7 +185,7 @@ Page({
       fail:function(res) {
         wx.showToast({
           title: '连接失败',
-          imame: '/icons/fail.png',
+          icon: 'none',
           duration: 600
         })
       }
