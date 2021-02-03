@@ -104,7 +104,7 @@ Page({
             success: function (res) {
               if (res.cancel) {
               } else {
-                var url = 'http://47.104.165.90/api/user/' + app.Data.user_id + '/delete'
+                var url = 'http://' + app.Data.hostname + '/api/user/' + app.Data.user_id + '/delete'
           wx.request({
             url: url,
             method: 'DELETE',
@@ -151,7 +151,7 @@ Page({
         if (res.cancel) {
         } else {
           
-          var url = 'http://47.104.165.90/api/user/' + app.Data.user_id
+          var url = 'http://' + app.Data.hostname + '/api/user/' + app.Data.user_id
           wx.request({
             url: url,
             method: 'PUT',
@@ -208,7 +208,7 @@ Page({
    */
   onShow: function () {
     var that = this
-    var url = 'http://47.104.165.90/api/user/' + app.Data.user_id + '/show'
+    var url = 'http://' + app.Data.hostname + '/api/user/' + app.Data.user_id + '/show'
     wx.request({
       url: url,
       method: 'GET',
@@ -225,7 +225,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',

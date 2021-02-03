@@ -10,8 +10,10 @@
     <input type="text" bindinput="department" placeholder="部门名称" maxlength="10"/>
   </view>
   <view class="button">
-    <image src="/icons/confirm.png" bindtap="save" mode="aspectFit"></image>
-    <view style="width:50rpx;"></view>
     <image src="/icons/back.png" bindtap="back" mode="aspectFit"></image>
+    
+    <view style="width:50rpx;"></view>
+    <image src="/icons/confirm.png" bindtap="save" mode="aspectFit"></image>
+    
   </view>
 </view>

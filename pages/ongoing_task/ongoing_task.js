@@ -20,7 +20,7 @@ Page({
               })
             } else {
               wx.request({
-                url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
+                url: 'http://' + app.Data.hostname + '/api/tasks/' + app.Data.task_id,
                 method: 'PUT',
                 header: {
                   'Accpet': 'application/json',
@@ -76,7 +76,7 @@ Page({
          if (res.cancel) {
          } else {
             wx.request({
-              url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
+              url: 'http://' + app.Data.hostname + '/api/tasks/' + app.Data.task_id,
               method: 'PUT',
               header: {
                 'Accept': 'application/json',
@@ -131,7 +131,7 @@ Page({
     var that = this
     wx.showNavigationBarLoading()
     wx.request({
-      url: 'http://47.104.165.90/api/tasks/' + app.Data.task_id,
+      url: 'http://' + app.Data.hostname + '/api/tasks/' + app.Data.task_id,
       method: 'GET',
       header: {
         'Accept': 'application/json',

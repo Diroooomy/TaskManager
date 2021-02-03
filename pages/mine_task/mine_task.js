@@ -25,7 +25,7 @@ Page({
             currentTab: 1
           });
           wx.showNavigationBarLoading()
-          var url = 'http://47.104.165.90/api/tasks/' + app.Data.task_id
+          var url = 'http://' + app.Data.hostname + '/api/tasks/' + app.Data.task_id
           wx.request({
             url: url,
             method: 'PUT',
@@ -85,7 +85,7 @@ Page({
    */
   onShow: function () {
     var that = this
-    var url = 'http://47.104.165.90/api/tasks/' + app.Data.task_id
+    var url = 'http://' + app.Data.hostname + '/api/tasks/' + app.Data.task_id
     wx.request({
       url: url,
       method: 'GET',

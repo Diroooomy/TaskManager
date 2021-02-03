@@ -38,7 +38,7 @@ Page({
     });
     app.Data.root = this.data.root
     wx.request({
-      url: 'http://47.104.165.90/api/loginbyphone',
+      url: 'http://' + app.Data.hostname + '/api/loginbyphone',
       method: 'POST',
       data:{
         "phone": this.data.phone,

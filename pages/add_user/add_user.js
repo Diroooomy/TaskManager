@@ -92,7 +92,7 @@ Page({
         } else {
           
           wx.request({
-            url: 'http://47.104.165.90/api/user/store',
+            url: 'http://' + app.Data.hostname + '/api/user/store',
             method: 'POST',
             header: {
               'Accept': 'applicaiton/json',
@@ -134,7 +134,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',

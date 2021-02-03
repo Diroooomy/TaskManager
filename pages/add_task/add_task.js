@@ -109,7 +109,7 @@ Page({
     } else {
       wx.showNavigationBarLoading()
       wx.request({
-        url: 'http://47.104.165.90/api/tasks',
+        url: 'http://' + app.Data.hostname + '/api/tasks',
         method: 'POST',
         header: {
           'Accept': 'applicaiton/json',
@@ -142,7 +142,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/users',
+      url: 'http://' + app.Data.hostname + '/api/users',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',

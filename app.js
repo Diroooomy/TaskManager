@@ -5,7 +5,8 @@ App({
     token: "2795e93181a6a301af437bd88119dfdd",
     root: 1,
     task_id: 1,
-    user_id: 'GT250'
+    user_id: 'GT250',
+    hostname: '47.104.165.90'
   },
   onLaunch: function () {
     // 展示本地存储能力

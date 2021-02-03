@@ -62,7 +62,7 @@ Page({
     var that = this
     wx.showNavigationBarLoading()
     wx.request({
-      url: 'http://47.104.165.90/api/tasks',
+      url: 'http://' + app.Data.hostname + '/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -122,7 +122,7 @@ Page({
     var that = this
     wx.showNavigationBarLoading()
     wx.request({
-      url: 'http://47.104.165.90/api/tasks',
+      url: 'http://' + app.Data.hostname + '/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",

@@ -48,7 +48,7 @@ Page({
     });
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -70,7 +70,7 @@ Page({
     })
     console.log(this.data.body)
     wx.request({
-      url: 'http://47.104.165.90/api/tasks/search',
+      url: 'http://' + app.Data.hostname + '/api/tasks/search',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -104,7 +104,7 @@ Page({
     this.setData({
       department: this.data.departments[e.detail.value].name,
       department_id: this.data.departments[e.detail.value].id,
-      url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id,
+      url: 'http://' + app.Data.hostname + '/api/departments/' + this.data.departments[e.detail.value].id,
     })
     
     console.log(e.detail.value)
@@ -170,7 +170,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: 'http://47.104.165.90/api/tasks',
+      url: 'http://' + app.Data.hostname + '/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -248,7 +248,7 @@ Page({
     })
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/tasks',
+      url: 'http://' + app.Data.hostname + '/api/tasks',
       method: 'GET',
       header: {
         'Accept': "application/json",

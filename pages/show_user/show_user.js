@@ -39,7 +39,7 @@ Page({
    */
   onShow: function () {
     var that = this
-    var url = 'http://47.104.165.90/api/user/' + app.Data.user_id+ '/show'
+    var url = 'http://' + app.Data.hostname + '/api/user/' + app.Data.user_id+ '/show'
     wx.request({
       url: url,
       method: 'GET',
@@ -77,7 +77,7 @@ Page({
   onPullDownRefresh: function () {
     wx.showLoading()
     var that = this
-    var url = 'http://47.104.165.90/api/user/' + app.Data.user_id+ '/show'
+    var url = 'http://' + app.Data.hostname + '/api/user/' + app.Data.user_id+ '/show'
     wx.request({
       url: url,
       method: 'GET',

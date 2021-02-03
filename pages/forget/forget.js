@@ -44,7 +44,7 @@ Page({
     });
     var that = this;
     wx.request({
-      url: 'http://47.104.165.90/api/sms',
+      url: 'http://' + app.Data.hostname + '/api/sms',
       method: 'POST',
       data:{
         "phone": this.data.phone
@@ -109,7 +109,7 @@ Page({
     app.globalData.root = this.data.root
     if (this.data.password == this.data.confirm) {
       wx.request({
-        url: 'http://47.104.165.90/api/change',
+        url: 'http://' + app.Data.hostname + '/api/change',
         method: 'PUT',
         data:{
           "phone": this.data.phone,

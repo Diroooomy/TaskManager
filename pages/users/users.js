@@ -18,7 +18,7 @@ Page({
     this.setData({
       department: this.data.departments[e.detail.value].name,
       department_id: this.data.departments[e.detail.value].id,
-      url: 'http://47.104.165.90/api/departments/' + this.data.departments[e.detail.value].id,
+      url: 'http://' + app.Data.hostname + '/api/departments/' + this.data.departments[e.detail.value].id,
     })
     console.log(e.detail.value)
     var that = this
@@ -85,7 +85,7 @@ Page({
     })
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',
@@ -111,7 +111,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://47.104.165.90/api/users',
+      url: 'http://' + app.Data.hostname + '/api/users',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -161,7 +161,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/users',
+      url: 'http://' + app.Data.hostname + '/api/users',
       method: 'GET',
       header: {
         'Accept': "application/json",
@@ -191,7 +191,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',

@@ -17,7 +17,7 @@ Page({
     var that = this
     if(this.data.name) {
       wx.request({
-        url: 'http://47.104.165.90/api/departments',
+        url: 'http://' + app.Data.hostname + '/api/departments',
         method: 'POST',
         header: {
           'Accpet': 'application/json',
@@ -77,7 +77,7 @@ Page({
             success (res) {
               if (res.confirm) {
                 wx.request({
-                  url: 'http://47.104.165.90/api/departments/' + that.data.id,
+                  url: 'http://' + app.Data.hostname + '/api/departments/' + that.data.id,
                   method: 'DELETE',
                   header: {
                     'Accept': 'application/json',
@@ -119,7 +119,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',
@@ -180,7 +180,7 @@ Page({
   onPullDownRefresh: function () {
     var that = this
     wx.request({
-      url: 'http://47.104.165.90/api/departments',
+      url: 'http://' + app.Data.hostname + '/api/departments',
       method: 'GET',
       header: {
         'Accept': 'applicaiton/json',
